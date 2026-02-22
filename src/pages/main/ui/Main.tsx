@@ -1,10 +1,8 @@
-import {Button} from "@chakra-ui/react";
+import {Header} from "../../../widgets/header";
 
 export const Main = () => {
     return (
-        <Button colorPalette="purple">
-            Main
-        </Button>
+        <Header/>
     );
 };
 
