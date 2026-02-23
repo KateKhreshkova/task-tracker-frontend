@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, HStack } from "@chakra-ui/react";
+import {Box, Heading, Text, VStack, HStack, Image} from "@chakra-ui/react";
 import {LoginButton, SignUpButton} from "../../../features/auth";
 
 export const WelcomeHero = () => {
@@ -14,12 +14,7 @@ export const WelcomeHero = () => {
         >
             {/* Иллюстрация */}
             <Box flex="1">
-                <Box
-                    bg="green.500"
-                    w="300px"
-                    h="350px"
-                    rounded="xl"
-                />
+                <Image src={"src/shared/assets/images/hero-image.png"}/>
             </Box>
 
             {/* Текст + кнопки */}
