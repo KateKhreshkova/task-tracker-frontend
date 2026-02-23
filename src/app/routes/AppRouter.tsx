@@ -1,14 +1,15 @@
 import {Route, Routes} from "react-router-dom";
-import {publicRoutes} from "./routes.ts";
+import {authRoutes, publicRoutes} from "./routes.ts";
 import {useAppSelector} from "../../shared/lib/hooks/useAppSelector.ts";
 import {getIsAuth} from "../../entities/user";
 import {Main} from "../../pages/main";
 
 const AppRouter = () => {
     const isAuth: boolean = useAppSelector(getIsAuth);
+    console.log(isAuth);
     return (
         <Routes>
-            { isAuth ? publicRoutes.map(({path, component: Component}) => {
+            { isAuth ? authRoutes.map(({path, component: Component}) => {
                 return <Route key={path} path={path} element={<Component/>}/>
             }) : null }
             {

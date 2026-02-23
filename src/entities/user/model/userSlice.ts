@@ -1,7 +1,7 @@
 import type {UserState} from "./types.ts";
 import {createSlice} from "@reduxjs/toolkit";
 
-const initialState: UserState = {user: null, isAuth: false, isChecking: false};
+const initialState: UserState = {user: null, isAuth: true, isChecking: false};
 
 
 export const userSlice = createSlice({

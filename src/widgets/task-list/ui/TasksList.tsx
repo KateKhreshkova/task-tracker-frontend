@@ -1,5 +1,5 @@
 import { VStack, Box, Input, Button, HStack } from "@chakra-ui/react";
-import { TaskCard } from "./TaskCard";
+import TaskCard from "./TaskCard";
 
 export const TasksList = () => {
     return (

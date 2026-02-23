@@ -1,7 +1,8 @@
 import { Box, Text, HStack, IconButton } from "@chakra-ui/react";
-import { CheckIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import {CheckIcon, DeleteIcon, EditIcon} from "lucide-react";
 
-export const TaskCard = () => {
+
+const TaskCard = () => {
     return (
         <Box
             w="full"
@@ -41,3 +42,4 @@ export const TaskCard = () => {
         </Box>
     );
 };
+export default TaskCard
