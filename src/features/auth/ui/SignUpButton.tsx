@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import {REGISTER_ROUTE} from "../../../shared/config/consts.ts";
 
 export const SignUpButton = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ export const SignUpButton = () => {
             colorScheme="gray"
             size="lg"
             w="200px"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate(REGISTER_ROUTE)}
         >
             Sign Up
         </Button>

@@ -12,12 +12,10 @@ export const WelcomeHero = () => {
             maxW="1100px"
             w="full"
         >
-            {/* Иллюстрация */}
             <Box flex="1">
                 <Image src={"src/shared/assets/images/hero-image.png"}/>
             </Box>
 
-            {/* Текст + кнопки */}
             <VStack align="start" gap={6} flex="1">
                 <Heading size="xl" color="white">
                     Welcome to TODO APP

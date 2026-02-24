@@ -1,8 +1,11 @@
+import {Center} from "@chakra-ui/react";
+import { SignUpForm } from "../../../widgets/sign-up-form";
+
 export const Register = () => {
     return (
-        <div>
-Register
-        </div>
+        <Center minH="100vh" bg="gray.900">
+        <SignUpForm />
+        </Center>
     );
 };
 
