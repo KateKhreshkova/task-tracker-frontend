@@ -15,7 +15,7 @@ export const buttonRecipe = defineRecipe({
         variant: {
             greenPrimary: {
                 bg: "#349357",
-                bgGradient: "linear(to-r, #5DCB9B, #3BA776)",
+                bgGradient: "linear(to-r, #5E976F, #589F68)",
                 color: "white",
                 boxShadow: "0 8px 20px rgba(0,0,0,0.25)",
                 _hover: {

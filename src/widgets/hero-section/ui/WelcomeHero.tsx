@@ -1,55 +1,57 @@
-import {VStack, HStack, Heading, Text} from "@chakra-ui/react";
+import {VStack, HStack, Heading, Text, Box} from "@chakra-ui/react";
 import {LoginButton, SignUpButton} from "../../../features/auth";
 import { WelcomeBanner } from "./WelcomeBanner";
 
 export const WelcomeHero = () => {
     return (
         <HStack
+            position="relative"
+            overflow="hidden"
             gap={16}
             bg="gray.700"
             p={12}
             rounded="2xl"
             shadow="xl"
-            maxW="1100px"
+            minH="100vh"
             w="full"
+            justify="center"
+            align="center"
         >
-            <WelcomeBanner />
+            {/* Texture layer */}
+            <Box
+                position="absolute"
+                inset={0}
+                backgroundImage="url('src/shared/assets/textures/noise.png')"
+                opacity={0.25}
+                pointerEvents="none"
+            />
 
-            <VStack align="start" gap={6} flex="1">
-                <Heading size="xl" color="white">
-                    Welcome to TODO APP
-                </Heading>
+            {/* Content wrapper */}
+            <HStack gap={16} w="full" position="relative" zIndex={1}>
+                <WelcomeBanner />
 
-                <Text color="gray.300" fontSize="lg">
-                    Manage your tasks efficiently and stay organized.
-                </Text>
+                <VStack align="start" gap={6} flex="1">
+                    <Heading
+                        size="6xl"
+                        color="white"
+                        letterSpacing="1.5px"
+                        alignSelf="flex-start"
+                        ml="-10"
+                    >
+                        Welcome to <br/> TODO APP
+                    </Heading>
 
-                <VStack gap={4} align="start">
-                    <LoginButton/>
-                    <SignUpButton />
+                    <Text color="gray.300" fontSize="xlg">
+                        Manage your tasks efficiently and stay organized.
+                    </Text>
+
+                    <VStack gap={4} align="start">
+                        <LoginButton />
+                        <SignUpButton />
+                    </VStack>
                 </VStack>
-            </VStack>
+            </HStack>
         </HStack>
-        // <Box
-        //     position="relative"
-        //     minH="100vh"
-        //     bgGradient="radial(circle at center, #4b5563 0%, #2f3542 100%)"
-        //     _before={{
-        //         content: '""',
-        //         position: "absolute",
-        //         inset: 0,
-        //         backgroundImage: "url('/noise.png')",
-        //         opacity: 0.05,
-        //         mixBlendMode: "overlay",
-        //         pointerEvents: "none",
-        //     }}
-        // > <Flex gap="60px" align="center">
-        //     <WelcomeBanner/>
-        //     <VStack gap={5}>
-        //         <LoginButton/>
-        //
-        //         <SignUpButton/>
-        //     </VStack>
-        // </Flex></Box>
+
     );
 };
