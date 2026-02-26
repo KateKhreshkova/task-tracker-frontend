@@ -1,5 +1,6 @@
-import {Box, Heading, Text, VStack, HStack, Image} from "@chakra-ui/react";
+import {VStack, HStack, Heading, Text} from "@chakra-ui/react";
 import {LoginButton, SignUpButton} from "../../../features/auth";
+import { WelcomeBanner } from "./WelcomeBanner";
 
 export const WelcomeHero = () => {
     return (
@@ -12,9 +13,7 @@ export const WelcomeHero = () => {
             maxW="1100px"
             w="full"
         >
-            <Box flex="1">
-                <Image src={"src/shared/assets/images/hero-image.png"}/>
-            </Box>
+            <WelcomeBanner />
 
             <VStack align="start" gap={6} flex="1">
                 <Heading size="xl" color="white">
@@ -31,5 +30,26 @@ export const WelcomeHero = () => {
                 </VStack>
             </VStack>
         </HStack>
+        // <Box
+        //     position="relative"
+        //     minH="100vh"
+        //     bgGradient="radial(circle at center, #4b5563 0%, #2f3542 100%)"
+        //     _before={{
+        //         content: '""',
+        //         position: "absolute",
+        //         inset: 0,
+        //         backgroundImage: "url('/noise.png')",
+        //         opacity: 0.05,
+        //         mixBlendMode: "overlay",
+        //         pointerEvents: "none",
+        //     }}
+        // > <Flex gap="60px" align="center">
+        //     <WelcomeBanner/>
+        //     <VStack gap={5}>
+        //         <LoginButton/>
+        //
+        //         <SignUpButton/>
+        //     </VStack>
+        // </Flex></Box>
     );
 };

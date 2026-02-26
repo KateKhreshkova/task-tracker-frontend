@@ -6,7 +6,7 @@ export const LoginButton = () => {
 
     return (
         <Button
-            colorScheme="green"
+            variant="greenPrimary"
             size="lg"
             w="200px"
             onClick={() => navigate("/login")}

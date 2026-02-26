@@ -7,8 +7,9 @@ export const SignUpButton = () => {
 
     return (
         <Button
-            variant="outline"
-            colorScheme="gray"
+
+            variant="graySecondary"
+            colorScheme="graySecondary"
             size="lg"
             w="200px"
             onClick={() => navigate(REGISTER_ROUTE)}
