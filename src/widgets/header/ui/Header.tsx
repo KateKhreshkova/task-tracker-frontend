@@ -1,45 +1,27 @@
-import {Box, Flex, HStack, IconButton} from "@chakra-ui/react";
-import {Menu, Star, User} from "lucide-react";
+import {Box, Container, Flex} from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 
 export const Header = () => {
     return (
-        <Box
-            as="header"
-            bg="purple.500"
-            px={6}
-            py={4}
-            boxShadow="sm"
+        <Box bg="#3a3d4c" py={4} boxShadow="
+  inset 0 -8px 20px rgba(0,0,0,0.5),
+  inset 8px 0 20px rgba(0,0,0,0.4),
+  inset -8px 0 20px rgba(0,0,0,0.4)
+"
         >
-            <Flex
-                maxW="1200px"
-                mx="auto"
-                align="center"
-                justify="space-between"
-            >
-                <Text
-                    fontSize="lg"
-                    fontWeight="bold"
-                    color="white"
-                    letterSpacing="wide"
-                >
-                    TODO APP
-                </Text>
-
-                <HStack>
-                    <IconButton aria-label="Star" variant="ghost" color="white">
-                        <Star size={18} />
-                    </IconButton>
-
-                    <IconButton aria-label="User" variant="ghost" color="white">
-                        <User size={18} />
-                    </IconButton>
-
-                    <IconButton aria-label="Menu" variant="ghost" color="white">
-                        <Menu size={18} />
-                    </IconButton>
-                </HStack>
-            </Flex>
+            <Container maxW="1200px" >
+                <Flex align="center" gap={3}>
+                    <Box
+                        w="28px"
+                        h="28px"
+                        bg="white"
+                        rounded="md"
+                    />
+                    <Text color="white" fontWeight="bold" fontSize="lg">
+                        TODO APP
+                    </Text>
+                </Flex>
+            </Container>
         </Box>
     );
 };

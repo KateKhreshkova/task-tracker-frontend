@@ -8,9 +8,8 @@ export const WelcomeHero = () => {
             position="relative"
             overflow="hidden"
             gap={16}
-            bg="gray.700"
+            bg="#414757"
             p={12}
-            rounded="2xl"
             shadow="xl"
             minH="100vh"
             w="full"
