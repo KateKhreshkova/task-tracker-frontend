@@ -1,26 +1,22 @@
 import {Box, Container, Flex} from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
+import { CheckCircle   } from "lucide-react";
 
 export const Header = () => {
     return (
-        <Box bg="#3a3d4c" py={4} boxShadow="
-  inset 0 -8px 20px rgba(0,0,0,0.5),
-  inset 8px 0 20px rgba(0,0,0,0.4),
-  inset -8px 0 20px rgba(0,0,0,0.4)
-"
-        >
-            <Container maxW="1200px" >
-                <Flex align="center" gap={3}>
-                    <Box
-                        w="28px"
-                        h="28px"
-                        bg="white"
-                        rounded="md"
-                    />
-                    <Text color="white" fontWeight="bold" fontSize="lg">
-                        TODO APP
-                    </Text>
+        <Box position="sticky"
+             top="0"
+             zIndex="100"
+             bg="rgba(40, 44, 57, 0.6)"
+             backdropFilter="blur(12px)"
+             borderBottom="1px solid"
+             borderColor="whiteAlpha.200">
+            <Container maxW="100%" py={4}>
+                <Flex align="center" gap={3} ml="5%">
+                    <CheckCircle size={30} color="#22C55E"/>
+                    <Text fontWeight="bold" color="#F9FAFB">TaskFlow</Text>
                 </Flex>
+
             </Container>
         </Box>
     );
