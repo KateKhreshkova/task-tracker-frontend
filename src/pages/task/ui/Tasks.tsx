@@ -1,16 +1,27 @@
 import {TasksList} from "../../../widgets/task-list";
 import {AddTaskPanel} from "../../../widgets/add-task-panel";
-import {Grid} from "@chakra-ui/react";
+import {Box, Grid} from "@chakra-ui/react";
+import {TaskHeader} from "../../../widgets/task-header";
 
 export const Tasks = () => {
     return (
-        <Grid
-            templateColumns={{ base: "1fr", lg: "2fr 1fr" }}
-            minH="100vh"
+        <Box
             bg="gray.900"
+            h="100vh"
+            display="flex"
+            flexDirection="column"
         >
-            <TasksList />
-            <AddTaskPanel />
-        </Grid>
+            <TaskHeader />
+
+            <Grid
+                templateColumns={{ base: "1fr", lg: "2fr 1fr" }}
+                flex="1"
+                overflow="hidden"
+            >
+                <TasksList />
+                <AddTaskPanel />
+            </Grid>
+
+        </Box>
     );
 };

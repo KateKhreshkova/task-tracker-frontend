@@ -1,8 +1,12 @@
 import { Box, Text, HStack, IconButton } from "@chakra-ui/react";
 import {Check,  Pencil, Trash2} from "lucide-react";
+import type { Task } from "../../../entities/task";
+import type {FC} from "react";
 
-
-const TaskCard = () => {
+interface Props {
+    task: Task;
+}
+const TaskCard: FC<Props> = ({task}) => {
     return (
         <Box
             w="full"
@@ -39,11 +43,11 @@ const TaskCard = () => {
 
                 <Box>
                     <Text fontWeight="bold" color="white">
-                        TODO TITLE
+                        {task.title}
                     </Text>
 
                     <Text fontSize="sm" color="gray.400">
-                        TODO SUB TITLE
+                        {task.description}
                     </Text>
                 </Box>
 

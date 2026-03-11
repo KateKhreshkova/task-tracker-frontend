@@ -9,7 +9,7 @@ import {
 
 export const AddTaskPanel = () => {
     return (
-        <Box p={8} bg="gray.800">
+        <Box p={8} bg="gray.800" minH="100%">
             <Heading size="md" mb={8} color="white">
                 Add Task
             </Heading>
