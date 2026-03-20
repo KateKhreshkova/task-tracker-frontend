@@ -7,7 +7,7 @@ export const Header = () => {
         <Box position="sticky"
              top="0"
              zIndex="100"
-             bg="rgba(40, 44, 57, 0.6)"
+             bg="gray.800"
              backdropFilter="blur(12px)"
              borderBottom="1px solid"
              borderColor="whiteAlpha.200">

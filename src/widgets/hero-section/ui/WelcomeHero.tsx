@@ -8,7 +8,7 @@ export const WelcomeHero = () => {
             position="relative"
             overflow="hidden"
             gap={16}
-            bg="#414757"
+            bg="gray.900"
             p={12}
             shadow="xl"
             minH="100vh"
