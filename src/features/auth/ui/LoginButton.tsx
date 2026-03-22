@@ -8,7 +8,7 @@ export const LoginButton = () => {
         <Button
             variant="greenPrimary"
             size="lg"
-            w="400px"
+            w="100%"
             onClick={() => navigate("/login")}
         >
             Login

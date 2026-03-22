@@ -1,19 +1,22 @@
 import { Input, VStack, Text, InputGroup } from "@chakra-ui/react";
 import { AuthForm } from "../../../features/auth";
 import { Lock, Mail } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, type FC } from "react";
+import {Link, useNavigate} from "react-router-dom";
 import {LOGIN_ROUTE} from "../../../shared/config/consts.ts";
-
-export const SignUpForm = () => {
+import type {LoginPayload} from "../../../entities/user";
+interface Props {
+    onSubmit: (payload: LoginPayload) => void;
+}
+export const SignUpForm: FC<Props> = ({onSubmit}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate()
 
     const handleSubmit = () => {
-
         if (password !== confirmPassword) {
             setError("Passwords do not match");
             return;
@@ -21,10 +24,17 @@ export const SignUpForm = () => {
 
         setError("");
 
-        console.log({
-            email,
-            password
-        });
+        try {
+            const payload: LoginPayload = {
+                email,
+                password,
+            };
+            onSubmit(payload);
+            navigate(LOGIN_ROUTE)
+        } catch (error) {
+            console.error(error)
+        }
+
     };
 
     return (

@@ -4,7 +4,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {loginUser} from "./thunks/loginUser.ts";
 import {logoutUser} from "./thunks/logoutUser.ts";
 
-const initialState: UserState = {user: null, isAuth: true, isChecking: false};
+const initialState: UserState = {user: null, isAuth: false, isChecking: false};
 
 
 export const userSlice = createSlice({

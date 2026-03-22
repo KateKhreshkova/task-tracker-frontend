@@ -4,10 +4,10 @@ export const buttonRecipe = defineRecipe({
     base: {
         borderRadius: "12px",
         fontWeight: "600",
-        height: "56px",
-        width: "220px",
+        height: { base: "48px", md: "56px" }, // responsive height
+        width: "100%", // fill parent container
         transition: "all 0.2s ease",
-        fontSize: "18px",
+        fontSize: { base: "16px", md: "18px" }, // responsive font size
         letterSpacing: "0.5px",
     },
 

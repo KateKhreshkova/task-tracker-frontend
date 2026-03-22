@@ -1,12 +1,30 @@
 import {Input, InputGroup, Text} from "@chakra-ui/react";
 import {AuthForm} from "../../../features/auth";
-import {Link} from "react-router-dom";
-import {REGISTER_ROUTE} from "../../../shared/config/consts.ts";
+import {Link, useNavigate} from "react-router-dom";
+import {REGISTER_ROUTE, TASKS_ROUTE} from "../../../shared/config/consts.ts";
 import {Lock, Mail} from "lucide-react";
+import type {LoginPayload} from "../../../entities/user";
+import {type FC, useState} from "react";
 
-export const LoginForm = () => {
+interface Props {
+    onSubmit: (payload: LoginPayload) => void;
+}
+export const LoginForm: FC<Props> = ({onSubmit}) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate= useNavigate();
 
     const handleSubmit = () => {
+        try {
+            const payload: LoginPayload = {
+                email,
+                password,
+            };
+            onSubmit(payload);
+            navigate(TASKS_ROUTE)
+        } catch (error) {
+            console.error(error)
+        }
     };
 
     return (
@@ -15,12 +33,16 @@ export const LoginForm = () => {
             <InputGroup startElement={<Mail size={18}/>}>
                 <Input
                     placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </InputGroup>
             <InputGroup startElement={<Lock size={18}/>}>
                 <Input
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Enter Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </InputGroup>
             <Text fontSize="sm" color="gray.400" textAlign="center">

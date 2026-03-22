@@ -11,7 +11,7 @@ export const SignUpButton = () => {
             variant="graySecondary"
             colorScheme="graySecondary"
             size="lg"
-            w="400px"
+            w="100%"
             onClick={() => navigate(REGISTER_ROUTE)}
         >
             Sign Up
