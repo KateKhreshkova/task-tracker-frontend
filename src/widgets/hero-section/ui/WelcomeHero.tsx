@@ -32,18 +32,7 @@ export const WelcomeHero = () => {
             overflow="hidden"
             px={{ base: "6%", lg: "5%" }}
         >
-            {/* 🔥 Glow background */}
-            <Box
-                position="absolute"
-                top="10%"
-                left="10%"
-                w="300px"
-                h="300px"
-                opacity={0.2}
-                bg="green.400"
-                filter="blur(200px)"
-                zIndex={0}
-            />
+
 
             {/* Noise */}
             <Box
@@ -69,17 +58,32 @@ export const WelcomeHero = () => {
                     gap={{ base: 10, lg: 16 }}
                     direction={{ base: "column", lg: "row" }}
                 >
-                    {/* LEFT IMAGE */}
                     <MotionBox
                         flex="1"
                         display="flex"
                         justifyContent="center"
+                        position="relative" // 👈 важно
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.7 }}
                         whileHover={{ scale: 1.02 }}
                     >
-                        <WelcomeBanner />
+                        {/* 🔥 Glow ПРИВЯЗАН к картинке */}
+                        <Box
+                            position="absolute"
+                            w="70%"
+                            h="70%"
+                            bg="green.400"
+                            opacity={0.25}
+                            filter="blur(120px)"
+                            borderRadius="50%"
+                            zIndex={0}
+                        />
+
+                        {/* Картинка */}
+                        <Box position="relative" zIndex={1}>
+                            <WelcomeBanner />
+                        </Box>
                     </MotionBox>
 
                     {/* RIGHT CONTENT */}

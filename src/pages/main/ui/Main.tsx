@@ -8,7 +8,7 @@ export const Main = () => {
             <Header />
 
             {/* Всё остальное занимает остаток экрана */}
-            <Box flex="1" overflow="hidden">
+            <Box flex="1" >
                 <WelcomeHero />
             </Box>
         </Box>

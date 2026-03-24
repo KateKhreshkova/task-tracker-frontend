@@ -18,11 +18,15 @@ interface Props {
  * If there are no tasks, it shows an empty-state message.
  */
 export const TasksList: FC<Props> = ({ tasks = [] }) => {
+    const handleUpdate = () => {
+
+    };
     return (
         <Box
             p={8} // padding
             borderRight="1px solid" // right border
             borderColor="whiteAlpha.200"
+            minW="0"
             h="100%" // full height
             overflow="auto" // allow scrolling if tasks overflow
         >
@@ -30,10 +34,11 @@ export const TasksList: FC<Props> = ({ tasks = [] }) => {
             {/* Search input and search button */}
             <HStack mb={6}>
                 <Input
-                    placeholder="Search your tasks..." // search placeholder
+                    flex="1" // 🔥 КЛЮЧЕВОЕ
+                    placeholder="Search your tasks..."
                     bg="gray.800"
                     border="none"
-                    _focus={{ bg: "gray.700" }} // change background on focus
+                    _focus={{ bg: "gray.700" }}
                 />
 
                 <Button colorScheme="green">
@@ -64,7 +69,7 @@ export const TasksList: FC<Props> = ({ tasks = [] }) => {
                     {tasks.map((task) => (
 
                         /* Each task is rendered using the TaskCard component */
-                        <TaskCard key={task.id} task={task} />
+                        <TaskCard key={task.id} task={task} onUpdate={handleUpdate} />
 
                     ))}
                 </VStack>

@@ -1,5 +1,5 @@
-import {HStack, Text, Button, Spacer, VStack, Box} from "@chakra-ui/react";
-import { LogOut } from "lucide-react";
+import {HStack, Text, Spacer, VStack, Box} from "@chakra-ui/react";
+import {LogoutButton} from "../../../features/auth";
 
 export const TaskHeader = () => {
     return (
@@ -41,15 +41,7 @@ export const TaskHeader = () => {
                         </Text>
                     </HStack>
 
-                    <Button
-                        size="sm"
-                        bg="gray.800"
-                        _hover={{ bg: "gray.700" }}
-                        color="gray.200"
-                    >
-                        <LogOut size={16} />
-                        Log Out
-                    </Button>
+                    <LogoutButton></LogoutButton>
 
                 </HStack>
 

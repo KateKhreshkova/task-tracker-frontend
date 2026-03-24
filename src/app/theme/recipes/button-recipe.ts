@@ -6,7 +6,6 @@ export const buttonRecipe = defineRecipe({
         borderRadius: "14px",
         fontWeight: "600",
         height: { base: "50px", md: "56px" },
-        width: "100%",
         fontSize: { base: "16px", md: "17px" },
         letterSpacing: "0.3px",
         transition: "all 0.25s ease",
