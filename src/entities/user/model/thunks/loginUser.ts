@@ -8,6 +8,7 @@ export const loginUser = createAsyncThunk<string, LoginPayload>("user/login",
             const res = await userApi.login(payload);
             const {accessToken} = res.data
             localStorage.setItem("accessToken", accessToken);
+            console.log(accessToken);
             return accessToken;
         } catch (err) {
             return thunkAPI.rejectWithValue(err);
