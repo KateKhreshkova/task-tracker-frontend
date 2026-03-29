@@ -2,20 +2,15 @@ import {TasksList} from "../../../widgets/task-list";
 import {AddTaskPanel} from "../../../widgets/add-task-panel";
 import {Box, Grid} from "@chakra-ui/react";
 import {TaskHeader} from "../../../widgets/task-header";
-import {type Task, TaskStatus} from "../../../entities/task";
+import type {Task} from "../../../entities/task";
+// import {useGetTasks} from "../../../features/tasks/api/useGetTasks.ts";
+// import {Loader} from "lucide-react";
 
 export const Tasks = () => {
-    const tasks: Task[] = [
-        {
-            id: "1",
-            title: "Finish React project",
-            description: "Complete task dashboard UI and fix bugs",
-            status: TaskStatus.Pending,
-            createdAt: null,
-            updatedAt: null,
-            completedAt: null
-        }
-    ];
+    // const { tasks, loading } = useGetTasks();
+    //
+    // if (loading) return <Loader/>;\
+    const tasks : Task[] = []
     return (
         <Box
             bg="gray.900"
@@ -28,7 +23,7 @@ export const Tasks = () => {
             <Grid
                 templateColumns={{ base: "1fr", lg: "2fr 1fr" }}
                 flex="1"
-                minH="0" // 🔥 ВАЖНО для скролла
+                minH="0"
             >
                 <TasksList tasks={tasks}/>
                 <AddTaskPanel />

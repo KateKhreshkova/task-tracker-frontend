@@ -21,7 +21,7 @@ const authInterceptor = (
     config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
     const token = localStorage.getItem("accessToken");
-
+    console.log(token)
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
@@ -73,7 +73,7 @@ $authHost.interceptors.response.use(
 
         try {
             const response = await $host.post("/auth/refresh");
-            const newToken = response.data;
+            const newToken = response.data.accessToken;
 
             localStorage.setItem("accessToken", newToken);
 
