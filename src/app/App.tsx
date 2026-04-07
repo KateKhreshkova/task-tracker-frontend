@@ -5,6 +5,7 @@ import {useAppSelector} from "../shared/lib/hooks/useAppSelector.ts";
 import {useEffect} from "react";
 import {checkUser} from "../entities/user/model/thunks/checkUser.ts";
 import {Loader} from "lucide-react";
+import {ErrorBoundary} from "../shared/ui/ErrorBoundary.tsx";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -12,13 +13,15 @@ function App() {
 
     useEffect(() => {
         dispatch(checkUser());
-    })
+    }, [dispatch]);
     if (isChecking) {
         return <Loader/>
     }
   return (
     <BrowserRouter>
-      <AppRouter/>
+      <ErrorBoundary>
+        <AppRouter/>
+      </ErrorBoundary>
     </BrowserRouter>
   )
 }

@@ -1,7 +1,9 @@
 import {HStack, Text, Spacer, VStack, Box} from "@chakra-ui/react";
 import {LogoutButton} from "../../../features/auth";
+import {useAppSelector} from "../../../shared/lib/hooks/useAppSelector.ts";
 
 export const TaskHeader = () => {
+    const {user} = useAppSelector(state => state.user);
     return (
         <Box
             px={8}
@@ -36,9 +38,11 @@ export const TaskHeader = () => {
                             flexShrink={0}
                         />
 
-                        <Text color="gray.300">
-                            user@email.com
-                        </Text>
+                        {user && (
+                            <Text color="gray.300">
+                                {user.email}
+                            </Text>
+                        )}
                     </HStack>
 
                     <LogoutButton></LogoutButton>

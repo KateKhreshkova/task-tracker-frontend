@@ -3,6 +3,7 @@ import axios, {
     type AxiosInstance,
     type InternalAxiosRequestConfig,
 } from "axios";
+import {userApi} from "../../entities/user/api/userApi.ts";
 
 export const $host: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
@@ -72,9 +73,9 @@ $authHost.interceptors.response.use(
         isRefreshing = true;
 
         try {
-            const response = await $host.post("/auth/refresh");
+            const response =  await userApi.refresh();
             const newToken = response.data.accessToken;
-
+            console.log(newToken)
             localStorage.setItem("accessToken", newToken);
 
             // Retry queued requests

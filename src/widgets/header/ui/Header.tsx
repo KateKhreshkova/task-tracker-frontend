@@ -1,7 +1,8 @@
-import {Box, Container, Flex} from "@chakra-ui/react";
-import { Text } from "@chakra-ui/react";
+import {Box, Container, Flex, Text} from "@chakra-ui/react";
 import { CheckCircle   } from "lucide-react";
+import { Link } from "react-router-dom";
 import { SignUpButton} from "../../../features/auth";
+import { ABOUT_ROUTE, MAIN_ROUTE } from "../../../shared/config/consts.ts";
 
 export const Header = () => {
     return (
@@ -18,23 +19,27 @@ export const Header = () => {
                 <Flex align="center" justify="space-between" px="5%">
 
                     {/* Logo */}
-                    <Flex align="center" gap={3}>
+                    <Link to={MAIN_ROUTE}>
+                        <Flex align="center" gap={3} cursor="pointer">
                         <CheckCircle size={30} color="#22C55E" />
                         <Text fontWeight="bold" fontSize="lg" color="#F9FAFB">
                             TaskFlow
                         </Text>
-                    </Flex>
+                        </Flex>
+                    </Link>
 
                     {/* Right side */}
                     <Flex align="center" gap={6}>
-                        <Text
-                            color="gray.300"
-                            cursor="pointer"
-                            _hover={{ color: "white" }}
-                            transition="0.2s"
-                        >
-                            About
-                        </Text>
+                        <Link to={ABOUT_ROUTE}>
+                            <Text
+                                color="gray.300"
+                                cursor="pointer"
+                                _hover={{ color: "white" }}
+                                transition="0.2s"
+                            >
+                                About
+                            </Text>
+                        </Link>
 
                         <SignUpButton/>
                     </Flex>
@@ -44,4 +49,3 @@ export const Header = () => {
         </Box>
     );
 };
-

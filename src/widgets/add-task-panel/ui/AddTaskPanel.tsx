@@ -4,10 +4,28 @@ import {
     Input,
     Textarea,
     Button,
-    VStack,
+    VStack, Spinner,
 } from "@chakra-ui/react";
+import {type FC, useState} from "react";
 
-export const AddTaskPanel = () => {
+interface Props {
+    onAdd: (task: { title: string; description: string }) => Promise<void>;
+    isAdding?: boolean;
+}
+
+export const AddTaskPanel: FC<Props> = ({onAdd, isAdding = false}) => {
+    const [title, setTitle] = useState("");
+    const [detail, setDetail] = useState("");
+
+    const handleAdd = async () => {
+        try {
+            await onAdd({title: title, description: detail});
+            setTitle("");
+            setDetail("");
+        } catch (err) {
+            console.error(err);
+        }
+    };
     return (
         <Box p={8} bg="gray.800" minH="100%">
             <Heading size="md" mb={8} color="white">
@@ -18,12 +36,14 @@ export const AddTaskPanel = () => {
                 <Input
                     placeholder="Title"
                     variant="flushed"
+                    onChange={(e) => setTitle(e.target.value)}
                     _focusVisible={{ borderColor: "green.400" }}
                 />
 
                 <Textarea
                     placeholder="Detail"
                     variant="flushed"
+                    onChange={(e) => setDetail(e.target.value)}
                     _focusVisible={{ borderColor: "green.400" }}
                 />
 
@@ -31,8 +51,10 @@ export const AddTaskPanel = () => {
                     size="lg"
                     colorScheme="green"
                     mt={6}
+                    onClick={handleAdd}
+                    disabled={isAdding}
                 >
-                    ADD
+                    {isAdding ? <Spinner size="sm" /> : "ADD"}
                 </Button>
             </VStack>
         </Box>

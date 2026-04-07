@@ -2,38 +2,34 @@ import { Input, VStack, Text, InputGroup } from "@chakra-ui/react";
 import { AuthForm } from "../../../features/auth";
 import { Lock, Mail } from "lucide-react";
 import { useState, type FC } from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {LOGIN_ROUTE} from "../../../shared/config/consts.ts";
 import type {LoginPayload} from "../../../entities/user";
 interface Props {
     onSubmit: (payload: LoginPayload) => void;
+    error?: string | null;
+    isLoading?: boolean;
 }
-export const SignUpForm: FC<Props> = ({onSubmit}) => {
+export const SignUpForm: FC<Props> = ({onSubmit, error, isLoading}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate()
+    const [formError, setFormError] = useState("");
 
     const handleSubmit = () => {
         if (password !== confirmPassword) {
-            setError("Passwords do not match");
+            setFormError("Passwords do not match");
             return;
         }
 
-        setError("");
+        setFormError("");
 
-        try {
-            const payload: LoginPayload = {
-                email,
-                password,
-            };
-            onSubmit(payload);
-            navigate(LOGIN_ROUTE)
-        } catch (error) {
-            console.error(error)
-        }
+        const payload: LoginPayload = {
+            email,
+            password,
+        };
+        onSubmit(payload);
 
     };
 
@@ -43,6 +39,7 @@ export const SignUpForm: FC<Props> = ({onSubmit}) => {
             buttonText="Create Account"
             title="Create Account"
             subtitle="Sign up to get started"
+            isLoading={isLoading}
         >
             <VStack gap={4} align="stretch">
 
@@ -72,6 +69,11 @@ export const SignUpForm: FC<Props> = ({onSubmit}) => {
                     />
                 </InputGroup>
 
+                {formError && (
+                    <Text fontSize="sm" color="red.400">
+                        {formError}
+                    </Text>
+                )}
                 {error && (
                     <Text fontSize="sm" color="red.400">
                         {error}

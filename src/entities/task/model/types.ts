@@ -1,11 +1,11 @@
 export interface Task {
-    id: string,
+    id: string | null,
     title: string,
     description: string,
-    status: TaskStatus,
-    createdAt: Date,
-    updatedAt: Date,
-    completedAt: Date
+    status: TaskStatus | null,
+    createdAt: Date | null,
+    updatedAt: Date | null,
+    completedAt: Date | null,
 }
 export const TaskStatus = {
     Done: "DONE",

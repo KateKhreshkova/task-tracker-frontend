@@ -6,6 +6,6 @@ export const taskApi = {
     getAll: () => $authHost.get( API_URL ),
     create: (data: Task) => $authHost.post( API_URL, data),
     update: (taskId: string, data: Task) => $authHost.put( API_URL + "/" + taskId, data),
-    delete: (taskId: string) => $authHost.get( API_URL + "/" + taskId ),
-    done: (taskId: string) => $authHost.post( API_URL + "/" + taskId),
+    delete: (taskId: string) => $authHost.delete( API_URL + "/" + taskId ),
+    done: (taskId: string) => $authHost.put( API_URL + "/done/" + taskId),
 };

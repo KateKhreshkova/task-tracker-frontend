@@ -153,7 +153,7 @@ export const WelcomeHero = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6, duration: 0.6 }}
-                    whileHover={{ y: -5, boxShadow: "0 15px 35px rgba(0,0,0,0.3)" }}
+                    whileHover={{ y: -5 }}
                 >
                     <FeaturePreviewSection />
                 </MotionBox>
