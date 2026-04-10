@@ -1,18 +1,20 @@
 import { Box } from "@chakra-ui/react";
 import { Header } from "../../../widgets/header";
-import {WelcomeHero} from "../../../widgets/hero-section";
+import { WelcomeHero } from "../../../widgets/hero-section";
 
 export const Main = () => {
     return (
-        <Box h="100vh" display="flex" flexDirection="column">
-            <Header />
+        <Box minH="100vh" display="flex" flexDirection="column" bg="gray.900">
+            {/* Header with higher z-index to stay on top */}
+            <Box position="relative" zIndex={100}>
+                <Header />
+            </Box>
 
-            {/* Всё остальное занимает остаток экрана */}
-            <Box flex="1" >
+            {/* Hero section takes remaining space */}
+            <Box flex="1" position="relative">
                 <WelcomeHero />
             </Box>
         </Box>
-
     );
 };
 

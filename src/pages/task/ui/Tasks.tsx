@@ -1,17 +1,11 @@
 import {TasksList} from "../../../widgets/task-list";
 import {AddTaskPanel} from "../../../widgets/add-task-panel";
-import {
-    AlertContent,
-    AlertDescription,
-    AlertIndicator,
-    AlertRoot,
-    Box,
-    Grid
-} from "@chakra-ui/react";
+import {Box, Grid} from "@chakra-ui/react";
 import {TaskHeader} from "../../../widgets/task-header";
 import {useTasks} from "../../../features/tasks/model/useTasks.ts";
 import {Loader} from "lucide-react";
 import type {Task} from "../../../entities/task";
+import {ErrorMessage} from "../../../shared/ui/ErrorMessage.tsx";
 
 export const Tasks = () => {
     const {
@@ -72,16 +66,9 @@ export const Tasks = () => {
             flexDirection="column"
         >
             <TaskHeader />
-            {error && (
-                <Box px={6} pt={4}>
-                    <AlertRoot status="error" bg="red.900" color="red.100">
-                        <AlertIndicator />
-                        <AlertContent>
-                            <AlertDescription>{error}</AlertDescription>
-                        </AlertContent>
-                    </AlertRoot>
-                </Box>
-            )}
+            <Box px={6} pt={4}>
+                <ErrorMessage message={error} variant="banner" />
+            </Box>
 
             <Grid
                 templateColumns={{ base: "1fr", lg: "2fr 1fr" }}
